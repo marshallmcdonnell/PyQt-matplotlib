@@ -1,8 +1,9 @@
-from PyQt4.QtCore import *
-from PyQt4.QtGui import *
+from PyQt5.QtCore import *
+from PyQt5.QtGui import *
+import PyQt5.QtWidgets as QtWidgets
 
-from matplotlib.backends.backend_qt4agg import FigureCanvasQTAgg as FigureCanvas
-from matplotlib.backends.backend_qt4agg import NavigationToolbar2QTAgg as NavigationToolbar
+from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
+from matplotlib.backends.backend_qt5agg import NavigationToolbar2QT as NavigationToolbar
 from matplotlib.figure import Figure
 
 class MyMplCanvas(FigureCanvas):
@@ -15,8 +16,8 @@ class MyMplCanvas(FigureCanvas):
         self.canvas = FigureCanvas(fig)
         self.canvas.setParent(parent)
 
-        self.canvas.setSizePolicy(QSizePolicy.Expanding,
-                                   QSizePolicy.Expanding)
+        self.canvas.setSizePolicy(QtWidgets.QSizePolicy.Expanding,
+                                  QtWidgets.QSizePolicy.Expanding)
         self.mpl_toolbar = NavigationToolbar(self.canvas, parent)        
         self.canvas.updateGeometry()
 
